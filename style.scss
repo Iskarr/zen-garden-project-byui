@@ -1,0 +1,132 @@
+/* css Zen Garden default style v1.02 */
+/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+
+/* This file based on 'Tranquille' by Dave Shea */
+/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
+/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
+
+/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
+
+// variables
+$Yellow: #fcec0c;
+$darkyellow: #978d01;
+$blue: #136377;
+$offwhite: #d1c5c0;
+$brown: #58482c;
+
+@font-face {
+  font-family: Cyber;
+  src: url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf");
+  font-display: swap;
+}
+
+@mixin borderStyle($border, $borderLeft, $borderRight, $borderBottom) {
+  border: 30px solid $border;
+  border-left: 5px solid $borderLeft;
+  border-right: 5px solid $borderRight;
+  border-bottom: 15px solid $borderBottom;
+  clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  );
+  background-color: #fcec0c;
+  font-family: "Cyber", sans-serif;
+  padding: 0px 10px 0px;
+}
+
+a:nth-last-child(2) {
+  text-decoration: none;
+  display: block;
+  border: 10px;
+  color: #fff;
+  padding: 15px;
+  background-color: rgb(255, 31, 31);
+  width: 40%;
+  clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 20px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  );
+}
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #136377;
+  padding: 1%;
+  color: #d1c5c0;
+}
+
+.page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 0.5em;
+  grid-auto-rows: minmax(100px, auto);
+  justify-items: stretch;
+  align-items: center;
+}
+
+/* Black border design */
+header {
+  @include borderStyle(#000, #000, #000, #000);
+  font-size: 1em;
+}
+footer {
+  @include borderStyle(#000, #000, #000, #000);
+}
+
+.explanation {
+  @include borderStyle(#000, #000, #000, #000);
+}
+.requirements {
+  @include borderStyle(#000, #000, #000, #000);
+}
+.design-selection {
+  @include borderStyle(#000, #000, #000, #000);
+}
+.design-archives {
+  @include borderStyle(#000, #000, #000, #000);
+}
+.zen-resources {
+  @include borderStyle(#000, #000, #000, #000);
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+@media screen and (min-width: 900px) {
+  .page-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header header header header"
+      "main main . sidebar"
+      "footer footer footer footer";
+  }
+  .design-selection {
+    @include borderStyle(#000, #000, #000, #000);
+  }
+
+  .design-selection {
+  }
+}
